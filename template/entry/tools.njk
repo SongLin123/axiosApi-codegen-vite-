@@ -1,9 +1,3 @@
-/*
- * @Date: 2020-05-13 14:30:24
- * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-10 14:47:24
- * @FilePath: \d2-admin\src\api\tools.js
- */
 /**
  * @description 安全地解析 json 字符串
  * @param {String} jsonString 需要解析的 json 字符串
