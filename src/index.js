@@ -1,16 +1,21 @@
 /*
  * @Date: 2020-06-05 17:57:47
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-01-26 09:52:51
+ * @LastEditTime : 2021-05-10 14:43:11
  * @FilePath: \codegen\src\index.js
  */
 
 import readConf from './readConfig'
 import { removeTar, longestCommonPrefix, splitSep } from './utils'
-import { renderIndex, renderModule } from './render'
+import { renderIndex, renderModule, renderEntry } from './render'
 import _ from 'lodash'
 ;(async function main () {
-  const { apijson, targetPath } = await readConf()
+  const {
+    apijson,
+    targetPath,
+    hasEntryService,
+    entryServiceTargetPath
+  } = await readConf()
 
   const oldpaths = apijson.paths,
     // oldpars = apijson.definitions
@@ -32,7 +37,6 @@ import _ from 'lodash'
                 token = item.split(/.*\//)[1]
               }
 
-              console.log(func.consumes, func)
               return {
                 tags: func.tags,
                 request: {
@@ -110,4 +114,6 @@ import _ from 'lodash'
   Array.from(module.keys()).forEach(key => {
     renderModule(key.dirname, key.filename, module.get(key), targetPath)
   })
+
+  if (hasEntryService) renderEntry(entryServiceTargetPath)
 })()

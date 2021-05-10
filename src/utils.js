@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 14:11:52
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-09-22 10:38:04
+ * @LastEditors  : BillySong
+ * @LastEditTime : 2021-05-10 14:34:49
  * @FilePath: \codegen\src\utils.js
  */
 import * as fs from 'fs-extra'
@@ -65,7 +65,6 @@ export async function removeTar (...args) {
 }
 
 export function splitSep (path) {
-  console.log(path)
   return path.split(/\//g).filter(item => item !== '')
 }
 
