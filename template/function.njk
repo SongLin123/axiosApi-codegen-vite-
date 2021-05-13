@@ -1,3 +1,11 @@
+{% if data.moduleName %}
+  {% set funcRoute = upper(request.moduleName)+'_'+upper(request.path)+'_' %}
+  {% set urlRoute ='/'+ request.moduleName+'/'+request.path %}
+{% else %}
+ {% set funcRoute = iterator(request.routes,upper,'_') %}
+  {% set urlRoute = iterator(request.routes,undefined,'','/') %}
+
+{% endif %}
     /**
   * @description {{request.desc}}  {{request.type}} {{ request.fullpath}}
   {# @param {{requestBody.type}} 
@@ -7,10 +15,10 @@
   {% endfor %}
   } #}
   */
-  {{ request.serviceName| replace |upper}}_{{ request.moduleName| upper}}_{{ request.path| upper}}_{{request.type|upper}}({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  {{ request.serviceName| replace |upper}}_{{ funcRoute }}{{request.type|upper}}({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/{{request.path}}{{requestBody.query |OR('/${path}','')}}`,
+      url: `${moduleName + pre}{{urlRoute}}{{requestBody.query |OR('/${path}','')}}`,
       method: '{{request.type}}',
       headers:{'Content-Type':'{{request.contenttype}}',
        ...header

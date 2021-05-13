@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-05 17:57:47
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-10 14:43:11
+ * @LastEditTime : 2021-05-13 13:16:00
  * @FilePath: \codegen\src\index.js
  */
 
@@ -36,6 +36,9 @@ import _ from 'lodash'
               } else {
                 token = item.split(/.*\//)[1]
               }
+              let routes = item
+                .split('/')
+                .filter(t => (t.search(/\{/) ? t : ''))
 
               return {
                 tags: func.tags,
@@ -44,6 +47,7 @@ import _ from 'lodash'
                   type,
                   desc: func.summary,
                   path: token,
+                  routes,
                   contenttype: func.consumes?.[0] // 一般接口只会有一个
                 },
                 // TODO 字段填写
@@ -85,6 +89,7 @@ import _ from 'lodash'
     let moduleName = splitSep(
       longestCommonPrefix(functions.map(t => t.request.fullpath))
     )
+
     basePath = apijson.basePath
       ? splitSep(apijson.basePath)
       : moduleName.splice(0, 1)
@@ -111,8 +116,8 @@ import _ from 'lodash'
 
   renderIndex(basePath, {}, targetPath)
 
-  Array.from(module.keys()).forEach(key => {
-    renderModule(key.dirname, key.filename, module.get(key), targetPath)
+  Array.from(module.keys()).forEach(async key => {
+    await renderModule(key.dirname, key.filename, module.get(key), targetPath)
   })
 
   if (hasEntryService) renderEntry(entryServiceTargetPath)

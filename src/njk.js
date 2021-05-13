@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 16:59:40
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-09-25 11:46:59
+ * @LastEditors  : BillySong
+ * @LastEditTime : 2021-05-13 11:43:13
  * @FilePath: \api-codegen\src\njk.js
  */
 import * as nunjucks from 'nunjucks'
@@ -54,6 +54,32 @@ export function createNjk (
     }
   })
 
+  env.addGlobal('upper', function (tar) {
+    try {
+      return tar.toUpperCase()
+    } catch (err) {
+      return err.message
+    }
+  })
+
+  env.addGlobal('iterator', function (
+    tar,
+    func = t => t,
+    endConnector = '',
+    preConnector = ''
+  ) {
+    try {
+      let s = ''
+
+      for (const item of tar) {
+        s += preConnector + func(item) + endConnector
+      }
+      return s
+    } catch (err) {
+      return err.message
+    }
+  })
+
   // TODO 兼容多path参数
   env.addFilter('routePar', function (tar) {
     try {
@@ -74,6 +100,7 @@ export function fuckinTar (env) {
   return async function (temName, model, target) {
     const text = env.render(temName + '.njk', model)
     const p = convertPath(target)
+    model.fileName || console.log(model.data.functions[0])
     await writeFile(
       path.resolve(p, ...model.dirName, model.fileName + '.js'),
       text

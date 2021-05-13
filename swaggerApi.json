@@ -1,21 +1,37 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "直播互动模块",
+    "title": "V1.0",
     "version": "last"
   },
-  "basePath": "/roomservice/weapp",
+  "basePath": "/",
   "tags": [
     {
-      "name": "公共分类",
-      "description": "公共分类"
-    },
-    {
-      "name": "直播房间管理",
+      "name": "基础功能",
       "description": null
     },
     {
-      "name": "公共接口",
+      "name": "租户管理",
+      "description": null
+    },
+    {
+      "name": "权限管理",
+      "description": null
+    },
+    {
+      "name": "数据监测（抖音）",
+      "description": null
+    },
+    {
+      "name": "账户管理",
+      "description": null
+    },
+    {
+      "name": "分组管理",
+      "description": null
+    },
+    {
+      "name": "授权账号管理",
       "description": null
     }
   ],
@@ -23,43 +39,54 @@
     "http"
   ],
   "paths": {
-    "/modify_room_member": {
+    "/user/loginByPwd": {
       "post": {
         "tags": [
-          "公共分类"
+          "基础功能"
         ],
-        "summary": "修改群成员角色",
+        "summary": "登陆（邮箱/手机号+密码）",
         "description": "",
         "consumes": [
-          "application/json"
+          "multipart/form-data"
         ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/common/search": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "搜索",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/common/download": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "文件下载",
+        "description": "",
         "parameters": [
           {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string",
-                  "description": "需要变更的userid"
-                },
-                "role": {
-                  "type": "string",
-                  "description": "Admin 管理员/ Member 普通用户"
-                },
-                "roomID": {
-                  "type": "string",
-                  "description": "房间Id：create_chatroom返回的roomid"
-                }
-              },
-              "required": [
-                "userID",
-                "roomID",
-                "role"
-              ]
-            }
+            "name": "fileName",
+            "in": "query",
+            "required": false,
+            "description": "文件名",
+            "type": "string"
           }
         ],
         "responses": {
@@ -68,106 +95,170 @@
             "schema": {
               "type": "object",
               "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "status"
-              ]
+              "properties": {}
             }
           }
         }
       }
     },
-    "/create_room": {
+    "/user/update": {
+      "put": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "更换手机号/邮箱",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/verifyCodeByEmail": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "发送验证码（邮箱）",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/info": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "获取个人信息",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "退出登陆",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/loginByVerifyCode": {
       "post": {
         "tags": [
-          "公共分类"
+          "基础功能"
         ],
-        "summary": "创建房间",
+        "summary": "登陆（手机号+验证码）",
         "description": "",
         "consumes": [
-          "application/json"
+          "multipart/form-data"
         ],
-        "parameters": [
-          {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string"
-                },
-                "nickName": {
-                  "type": "string"
-                },
-                "roomInfo": {
-                  "type": "string"
-                },
-                "roomType": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "userID",
-                "roomInfo"
-              ]
-            }
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
           }
+        }
+      }
+    },
+    "/user/resetPwd": {
+      "put": {
+        "tags": [
+          "基础功能"
         ],
+        "summary": "重置密码",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
               "type": "object",
               "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "roomID": {
-                  "type": "string"
-                },
-                "roomInfo": {
-                  "type": "string"
-                },
-                "privateMapKey": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "roomID",
-                "roomInfo",
-                "privateMapKey"
-              ]
+              "properties": {}
             }
           }
         }
       }
     },
-    "/create_chatroom": {
+    "/user/bindPhone": {
+      "put": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "绑定手机号",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/user/verifyCodeByPhone": {
+      "get": {
+        "tags": [
+          "基础功能"
+        ],
+        "summary": "发送验证码（手机）",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/common/question": {
       "post": {
         "tags": [
-          "公共分类"
+          "基础功能"
         ],
-        "summary": "创建聊天房间",
+        "summary": "问题反馈",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/tenant": {
+      "delete": {
+        "tags": [
+          "租户管理"
+        ],
+        "summary": "启用/禁用/删除租户",
         "description": "",
         "consumes": [
           "application/json"
@@ -177,30 +268,24 @@
             "name": "root",
             "in": "body",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
-                "userID": {
-                  "type": "string",
-                  "description": "房间owner"
+                "tenantIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "租户Id集合"
                 },
-                "userSig": {
-                  "type": "string",
-                  "description": "管理员的sig"
-                },
-                "nickName": {
-                  "type": "string"
-                },
-                "roomInfo": {
-                  "type": "string",
-                  "description": "房间名"
-                },
-                "roomType": {
-                  "type": "string"
+                "operationType": {
+                  "type": "number",
+                  "description": "1启用 2禁用 4删除"
                 }
               },
               "required": [
-                "roomInfo"
+                "tenantIds",
+                "operationType"
               ]
             }
           }
@@ -209,22 +294,304 @@
           "200": {
             "description": "successful operation",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
                 "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "租户管理"
+        ],
+        "summary": "新建租户",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "租户编码"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "租户名"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "租户描述"
+                },
+                "expired": {
+                  "type": "string",
+                  "description": "过期时间"
+                },
+                "level": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "级别ID"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "level",
+                "expired",
+                "name",
+                "code"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "租户管理"
+        ],
+        "summary": "租户列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "description": "租户状态",
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "租户编码",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "租户名称",
+            "type": "string"
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "description": "页码",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "description": "每页显示条数",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "msg": {
                   "type": "string"
                 },
-                "message": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "租户编码"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "租户名称"
+                          },
+                          "info": {
+                            "type": "string",
+                            "description": "租户描述"
+                          },
+                          "state": {
+                            "type": "integer",
+                            "description": "租户状态1正常2禁用3服务到期"
+                          },
+                          "expired": {
+                            "type": "string",
+                            "description": "服务到期时间"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "租户ID"
+                          },
+                          "created": {
+                            "type": "string",
+                            "description": "租户创建时间"
+                          },
+                          "edited": {
+                            "type": "string",
+                            "description": "更新时间"
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "name",
+                          "info",
+                          "state",
+                          "expired",
+                          "id",
+                          "created",
+                          "edited"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "page_num": {
+                      "type": "integer"
+                    },
+                    "page_size": {
+                      "type": "integer"
+                    },
+                    "total_page": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "租户管理"
+        ],
+        "summary": "编辑租户",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "租户ID"
+                },
+                "created": {
                   "type": "string"
                 },
-                "roomID": {
+                "edited": {
                   "type": "string"
                 },
-                "roomInfo": {
-                  "type": "string"
+                "deleted": {
+                  "type": "boolean"
                 },
-                "privateMapKey": {
+                "code": {
+                  "type": "string",
+                  "description": "租户CODE"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "租户名称"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "租户描述"
+                },
+                "state": {
+                  "type": "integer",
+                  "description": "租户状态"
+                },
+                "expired": {
+                  "type": "string",
+                  "description": "服务过期时间"
+                },
+                "level": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "code",
+                "name",
+                "expired",
+                "level"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
                   "type": "string"
                 }
               }
@@ -233,135 +600,148 @@
         }
       }
     },
-    "/heartbeat": {
-      "post": {
+    "/sys/tenant/export": {
+      "get": {
         "tags": [
-          "公共分类"
+          "租户管理"
         ],
-        "summary": "心跳，当终端心跳超时后踢出房间",
+        "summary": "租户导出",
         "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string"
-                },
-                "roomID": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "userID",
-                "roomID"
-              ]
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
                 "code": {
+                  "type": "number"
+                },
+                "msg": {
                   "type": "string"
                 },
-                "message": {
-                  "type": "string"
+                "data": {
+                  "type": "string",
+                  "description": "返回的文件名"
                 }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
       }
     },
-    "/get_login_info": {
-      "post": {
+    "/sys/tenant/detailed/{id}": {
+      "get": {
         "tags": [
-          "公共分类"
+          "租户管理"
         ],
-        "summary": "获取sdkAppID、accountType、userID、userSig信息",
+        "summary": "租户详情信息",
         "description": "",
-        "consumes": [
-          "application/json"
-        ],
         "parameters": [
           {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string",
-                  "description": "用户id，可为空，为空则随机分配"
-                }
-              },
-              "required": [
-                "userID"
-              ]
-            }
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
                 "code": {
-                  "type": "integer"
+                  "type": "number"
                 },
-                "message": {
+                "msg": {
                   "type": "string"
                 },
-                "sdkAppID": {
-                  "type": "string"
-                },
-                "accountType": {
-                  "type": "string"
-                },
-                "userID": {
-                  "type": "string"
-                },
-                "userSig": {
-                  "type": "string"
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "created": {
+                      "type": "string"
+                    },
+                    "edited": {
+                      "type": "string"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "info": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "integer"
+                    },
+                    "expired": {
+                      "type": "string"
+                    }
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "sdkAppID",
-                "accountType",
-                "userID",
-                "userSig"
-              ]
+              }
             }
           }
         }
       }
     },
-    "/get_room_list": {
+    "/sys/level/{id}": {
+      "delete": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "删除权限",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "级别ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sys/level": {
       "post": {
         "tags": [
-          "公共分类"
+          "权限管理"
         ],
-        "summary": "获取webrtc房间列表",
+        "summary": "新建权限",
         "description": "",
         "consumes": [
           "application/json"
@@ -371,23 +751,184 @@
             "name": "root",
             "in": "body",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
-                "index": {
-                  "type": "integer"
-                },
-                "count": {
-                  "type": "integer"
-                },
-                "roomType": {
+                "name": {
                   "type": "string",
-                  "description": "请求加入的房间类型，可以为空"
+                  "description": "级别名称"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "级别描述"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "权限列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "级别名称",
+            "type": "string"
+          },
+          {
+            "name": "pageNum",
+            "in": "query",
+            "required": false,
+            "description": "页码",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "description": "每页显示条数",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "created": {
+                            "type": "string",
+                            "description": "创建时间"
+                          },
+                          "edited": {
+                            "type": "string",
+                            "description": "更新时间"
+                          },
+                          "deleted": {
+                            "type": "boolean",
+                            "description": "删除状态"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "级别名称"
+                          },
+                          "info": {
+                            "type": "string",
+                            "description": "级别信息"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "created",
+                          "edited",
+                          "deleted",
+                          "name",
+                          "info"
+                        ]
+                      }
+                    },
+                    "total": {
+                      "type": "number"
+                    },
+                    "page_num": {
+                      "type": "number"
+                    },
+                    "page_size": {
+                      "type": "number"
+                    },
+                    "total_page": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "编辑权限",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "created": {
+                  "type": "string"
+                },
+                "edited": {
+                  "type": "string"
+                },
+                "deleted": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "级别名称"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "级别描述"
                 }
               },
               "required": [
-                "index",
-                "count"
+                "id",
+                "name",
+                "info"
               ]
             }
           }
@@ -396,52 +937,768 @@
           "200": {
             "description": "successful operation",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
                 "code": {
-                  "type": "integer"
+                  "type": "number"
                 },
-                "message": {
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sys/level/permissionSetted": {
+      "put": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "权限设置",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "levelId": {
+                  "type": "string",
+                  "description": "级别ID"
+                },
+                "resourceId": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "资源ID列表"
+                }
+              },
+              "required": [
+                "levelId",
+                "resourceId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sys/level/detailed/{id}": {
+      "get": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "权限详情信息",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "级别ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
                   "type": "string"
                 },
-                "rooms": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "created": {
+                      "type": "string"
+                    },
+                    "edited": {
+                      "type": "string"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "info": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sys/resource/tree": {
+      "get": {
+        "tags": [
+          "权限管理"
+        ],
+        "summary": "获取资源树",
+        "description": "",
+        "parameters": [
+          {
+            "name": "levelId",
+            "in": "query",
+            "required": false,
+            "description": "级别ID",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "roomID": {
-                        "type": "string",
-                        "description": "房间id"
+                      "id": {
+                        "type": "string"
                       },
-                      "roomInfo": {
+                      "created": {
+                        "type": "string"
+                      },
+                      "edited": {
+                        "type": "string"
+                      },
+                      "deleted": {
+                        "type": "boolean"
+                      },
+                      "name": {
                         "type": "string",
-                        "description": "房间名称"
+                        "description": "资源名"
+                      },
+                      "info": {
+                        "type": "string",
+                        "description": "资源描述"
+                      },
+                      "category": {
+                        "type": "number",
+                        "description": "类型1菜单2按钮3API"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "路径"
+                      },
+                      "sonResource": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "created": {
+                              "type": "string"
+                            },
+                            "edited": {
+                              "type": "string"
+                            },
+                            "deleted": {
+                              "type": "boolean"
+                            },
+                            "parentId": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "info": {
+                              "type": "string"
+                            },
+                            "category": {
+                              "type": "number"
+                            },
+                            "url": {
+                              "type": "string"
+                            },
+                            "sonResource": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "created": {
+                                    "type": "string"
+                                  },
+                                  "edited": {
+                                    "type": "string"
+                                  },
+                                  "deleted": {
+                                    "type": "boolean"
+                                  },
+                                  "parentId": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "info": {
+                                    "type": "string"
+                                  },
+                                  "category": {
+                                    "type": "number"
+                                  },
+                                  "url": {
+                                    "type": "string"
+                                  },
+                                  "sonResource": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string"
+                                        },
+                                        "created": {
+                                          "type": "string"
+                                        },
+                                        "edited": {
+                                          "type": "string"
+                                        },
+                                        "deleted": {
+                                          "type": "boolean"
+                                        },
+                                        "parentId": {
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "info": {
+                                          "type": "string"
+                                        },
+                                        "category": {
+                                          "type": "number"
+                                        },
+                                        "url": {
+                                          "type": "string"
+                                        },
+                                        "sonResource": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "isAuth": {
+                                          "type": "number"
+                                        }
+                                      },
+                                      "required": [
+                                        "id",
+                                        "created",
+                                        "edited",
+                                        "deleted",
+                                        "parentId",
+                                        "name",
+                                        "info",
+                                        "category",
+                                        "url",
+                                        "sonResource",
+                                        "isAuth"
+                                      ]
+                                    }
+                                  },
+                                  "isAuth": {
+                                    "type": "number"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "created",
+                                  "edited",
+                                  "deleted",
+                                  "parentId",
+                                  "name",
+                                  "info",
+                                  "category",
+                                  "url",
+                                  "sonResource",
+                                  "isAuth"
+                                ]
+                              }
+                            },
+                            "isAuth": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "created",
+                            "edited",
+                            "deleted",
+                            "parentId",
+                            "name",
+                            "info",
+                            "category",
+                            "url",
+                            "sonResource",
+                            "isAuth"
+                          ]
+                        },
+                        "description": "自己资源"
+                      },
+                      "isAuth": {
+                        "type": "number"
                       }
                     },
                     "required": [
-                      "roomID",
-                      "roomInfo"
+                      "id",
+                      "created",
+                      "edited",
+                      "deleted",
+                      "name",
+                      "info",
+                      "category",
+                      "url",
+                      "sonResource",
+                      "isAuth"
                     ]
                   }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "rooms"
-              ]
+              }
             }
           }
         }
       }
     },
-    "/get_room_members": {
+    "/tiktok/dataMonitor/commentTrend": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-数据概览-评论趋势",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/trend": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "工作台-作品趋势",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/videoTop": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "工作台-视频排行",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/accountList": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-授权账号列表",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/accountDetailed": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-授权账号详情",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/export": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-授权账号详情导出",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/shareTrend": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-数据概览-分享趋势",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/praiseTrend": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-数据概览-点赞趋势",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/fansTrend": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-数据概览-粉丝趋势",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/authCards": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "工作台-授权卡片列表",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/liveList": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-直播记录-直播列表",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/liveData": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-直播记录-直播数据",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/regionDistribution": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-粉丝画像-地域分布",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/ageDistribution": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-粉丝画像-年龄分布",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/sexDistribution": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-粉丝画像-性别分布",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/contactRatioCards": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-粉丝画像-粉丝重合度卡片",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/videoList": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-视频作品-视频列表",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tiktok/dataMonitor/videoData": {
+      "get": {
+        "tags": [
+          "数据监测（抖音）"
+        ],
+        "summary": "数据统计-视频作品-视频数据",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/account": {
+      "delete": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "启用/禁用/删除账户",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      },
       "post": {
         "tags": [
-          "公共分类"
+          "账户管理"
         ],
-        "summary": "获取房间内成员列表",
+        "summary": "新建账户",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "编辑账户",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "账户列表",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/account/import": {
+      "post": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "导入账户",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/account/export": {
+      "get": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "账户导出",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/account/detailed": {
+      "get": {
+        "tags": [
+          "账户管理"
+        ],
+        "summary": "账户详情信息",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/sys/groups": {
+      "delete": {
+        "tags": [
+          "分组管理"
+        ],
+        "summary": "删除/启用/禁用分组",
         "description": "",
         "consumes": [
           "application/json"
@@ -451,202 +1708,268 @@
             "name": "root",
             "in": "body",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
-                "roomID": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "roomID"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "members": {
+                "groups_ids": {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "userID": {
-                        "type": "string",
-                        "description": "用户id"
-                      },
-                      "nickName": {
-                        "type": "string",
-                        "description": "用户昵称"
+                    "type": "string"
+                  },
+                  "description": "分组id集合"
+                },
+                "operation_type": {
+                  "type": "number",
+                  "description": "1启用，2禁用，4删除"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "分组管理"
+        ],
+        "summary": "新建分组",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "分组名称"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "分组描述"
+                },
+                "parent_id": {
+                  "type": "string",
+                  "description": "所属分组"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "分组管理"
+        ],
+        "summary": "编辑分组",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "分组id"
+                },
+                "parent_id": {
+                  "type": "string",
+                  "description": "所属分组"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "分组名称"
+                },
+                "info": {
+                  "type": "string",
+                  "description": "分组描述"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "分组管理"
+        ],
+        "summary": "获取分组列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "key_word",
+            "in": "query",
+            "required": false,
+            "description": "关键字",
+            "type": "string"
+          },
+          {
+            "name": "parent_id",
+            "in": "query",
+            "required": false,
+            "description": "分组Id",
+            "type": "string"
+          },
+          {
+            "name": "page_num",
+            "in": "query",
+            "required": false,
+            "description": "页码",
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "description": "每页显示条数",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "分组Id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "分组名称"
+                          },
+                          "info": {
+                            "type": "string",
+                            "description": "分组描述"
+                          },
+                          "state": {
+                            "type": "number",
+                            "description": "状态1启用2停用"
+                          },
+                          "user_num": {
+                            "type": "number",
+                            "description": "账户量"
+                          }
+                        }
                       }
                     },
-                    "required": [
-                      "userID",
-                      "nickName"
-                    ]
-                  },
-                  "description": "成员列表"
+                    "total": {
+                      "type": "number"
+                    },
+                    "page_num": {
+                      "type": "number"
+                    },
+                    "page_size": {
+                      "type": "number"
+                    },
+                    "total_page": {
+                      "type": "number"
+                    }
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "members"
-              ]
+              }
             }
           }
         }
       }
     },
-    "/enter_room": {
-      "post": {
+    "/sys/groups/detailed/{id}": {
+      "get": {
         "tags": [
-          "公共分类"
+          "分组管理"
         ],
-        "summary": "进入房间",
+        "summary": "获取分组详情",
         "description": "",
-        "consumes": [
-          "application/json"
-        ],
         "parameters": [
           {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string"
-                },
-                "nickName": {
-                  "type": "string"
-                },
-                "roomID": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "userID",
-                "roomID"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "userID": {
-                  "type": "string"
-                },
-                "roomID": {
-                  "type": "string"
-                },
-                "privateMapKey": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "userID",
-                "roomID",
-                "privateMapKey"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/quit_room": {
-      "post": {
-        "tags": [
-          "公共分类"
-        ],
-        "summary": "退出房间",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string"
-                },
-                "roomID": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "userID",
-                "roomID"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/search_media": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "search_media",
-        "description": "```\nsearch_media查询直播的回看地址\n```",
-        "parameters": [
-          {
-            "name": "streamID",
-            "in": "query",
-            "required": false,
-            "description": "视频流ID",
+            "name": "id",
+            "in": "path",
+            "description": "分组id",
+            "required": true,
             "type": "string"
           }
         ],
@@ -654,864 +1977,96 @@
           "200": {
             "description": "successful operation",
             "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
               "type": "object",
-              "title": "empty object",
               "properties": {
                 "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
+                  "type": "number"
                 },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
+                "msg": {
+                  "type": "string"
                 },
-                "mediaUrl": {
-                  "type": "string",
-                  "description": "直播回看地址"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "mediaUrl"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/login": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "login",
-        "description": "```\nlogin 登录接口，校验im签名合法性并派发token，后续请求需要校验token\n```",
-        "parameters": [
-          {
-            "name": "sdkAppID",
-            "in": "query",
-            "required": false,
-            "description": "云通信的sdkAppID",
-            "type": "string"
-          },
-          {
-            "name": "accountType",
-            "in": "query",
-            "required": false,
-            "description": "云通信的accountType",
-            "type": "string"
-          },
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "userSig",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "userID": {
-                  "type": "string",
-                  "description": "用户id"
-                },
-                "token": {
-                  "type": "string",
-                  "description": "登录成功后产生的token"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "userID",
-                "token"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/get_push_url": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "get_push_url",
-        "description": "```\nget_push_url 获取推流地址接口\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "pushURL": {
-                  "type": "string",
-                  "description": "推流地址"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "pushURL"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/create_room": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "create_room",
-        "description": "```\ncreate_room 创建直播房间\n（\n先创建im群\n再创建房间\n）\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomInfo",
-            "in": "query",
-            "required": false,
-            "description": "房间名称",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "roomID": {
-                  "type": "string",
-                  "description": "房间ID"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "roomID"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/destroy_room": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "destroy_room",
-        "description": "```\ndestroy_room 销毁直播房间\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/get_room_list": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "get_room_list",
-        "description": "```\ncreate_room 创建直播房间\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "登录成功后返回的token",
-            "type": "string"
-          },
-          {
-            "name": "cnt ",
-            "in": "query",
-            "required": false,
-            "description": "房间数量",
-            "type": "string"
-          },
-          {
-            "name": "index",
-            "in": "query",
-            "required": false,
-            "description": "起始下标",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "rooms": {
+                "data": {
                   "type": "object",
                   "properties": {
-                    "roomID": {
+                    "id": {
                       "type": "string",
-                      "description": "房间ID"
+                      "description": "分组ID"
                     },
-                    "roomInfo": {
+                    "parent_id": {
                       "type": "string",
-                      "description": "房间名称"
+                      "description": "父级分组"
                     },
-                    "roomCreator": {
+                    "name": {
                       "type": "string",
-                      "description": "房间创建者userID"
+                      "description": "分组名称"
                     },
-                    "mixedPlayURL": {
+                    "info": {
                       "type": "string",
-                      "description": "混流播放地址"
+                      "description": "分组描述"
                     },
-                    "pushers": {
-                      "type": "object",
-                      "properties": {
-                        "userID": {
-                          "type": "string",
-                          "description": "用户id"
-                        },
-                        "userName": {
-                          "type": "string",
-                          "description": "用户昵称"
-                        },
-                        "userAvatar": {
-                          "type": "string",
-                          "description": "用户头像"
-                        },
-                        "accelerateURL": {
-                          "type": "string",
-                          "description": "低延时播放地址"
-                        }
-                      },
-                      "description": "推流者列表",
-                      "required": [
-                        "userID",
-                        "userName",
-                        "userAvatar",
-                        "accelerateURL"
-                      ]
+                    "state": {
+                      "type": "number",
+                      "description": "状态1启用，2停用"
                     }
-                  },
-                  "description": "房间ID",
-                  "required": [
-                    "roomID",
-                    "roomInfo",
-                    "roomCreator",
-                    "mixedPlayURL",
-                    "pushers"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "rooms"
-              ]
+              }
             }
           }
         }
       }
     },
-    "/live_room/add_pusher": {
-      "get": {
+    "/sys/authorize": {
+      "put": {
         "tags": [
-          "直播房间管理"
+          "授权账号管理"
         ],
-        "summary": "add_pusher",
-        "description": "```\nadd_pusher 增加一个推流者\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          },
-          {
-            "name": "roomInfo",
-            "in": "query",
-            "required": false,
-            "description": "房间名称",
-            "type": "string"
-          },
-          {
-            "name": "userName",
-            "in": "query",
-            "required": false,
-            "description": "用户名称",
-            "type": "string"
-          },
-          {
-            "name": "userAvatar",
-            "in": "query",
-            "required": false,
-            "description": "用户头像",
-            "type": "string"
-          },
-          {
-            "name": "pushURL",
-            "in": "query",
-            "required": false,
-            "description": "推流地址",
-            "type": "string"
-          }
-        ],
+        "summary": "再次授权",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
+            "schema": {}
           }
         }
-      }
-    },
-    "/live_room/delete_pusher": {
-      "get": {
+      },
+      "delete": {
         "tags": [
-          "直播房间管理"
+          "授权账号管理"
         ],
-        "summary": "delete_pusher",
-        "description": "```\ndelete_pusher 删除一个推流者\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          }
-        ],
+        "summary": "删除授权",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
+            "schema": {}
           }
         }
-      }
-    },
-    "/live_room/merge_stream": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "merge_stream",
-        "description": "```\nmerge_stream 连麦混流接口\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          },
-          {
-            "name": "mergeParams",
-            "in": "query",
-            "required": false,
-            "description": "混流参数json格式字符串",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "result ": {
-                  "type": "string",
-                  "description": "混流结果"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "result "
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/add_audience": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "add_audience",
-        "description": "```\nadd_audience 增加一个观众\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          },
-          {
-            "name": "userInfo",
-            "in": "query",
-            "required": false,
-            "description": "观众信息",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/delete_audience": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "delete_audience",
-        "description": "```\ndelete_audience 删除一个观众\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                }
-              },
-              "required": [
-                "code",
-                "message"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/live_room/get_audiences": {
-      "get": {
-        "tags": [
-          "直播房间管理"
-        ],
-        "summary": "get_audiences",
-        "description": "```\nget_audiences 获取观众列表\n```",
-        "parameters": [
-          {
-            "name": "userID",
-            "in": "query",
-            "required": false,
-            "description": "userID",
-            "type": "string"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "required": false,
-            "description": "云通信派发的userSig",
-            "type": "string"
-          },
-          {
-            "name": "roomID",
-            "in": "query",
-            "required": false,
-            "description": "房间ID",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "audiences": {
-                  "type": "object",
-                  "properties": {
-                    "userID": {
-                      "type": "string",
-                      "description": "userID"
-                    },
-                    "userInfo": {
-                      "type": "string",
-                      "description": "用户信息"
-                    }
-                  },
-                  "required": [
-                    "userID",
-                    "userInfo"
-                  ]
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "audiences"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "/utils/get_login_info": {
+      },
       "post": {
         "tags": [
-          "公共接口"
+          "授权账号管理"
         ],
-        "summary": "获取sdkAppID、userID、userSig信息",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "root",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "userID": {
-                  "type": "string",
-                  "description": "用户id，可为空，为空则随机分配"
-                }
-              },
-              "required": [
-                "userID"
-              ]
-            }
-          }
-        ],
+        "summary": "新建授权",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "integer",
-                  "description": "返回码，0表示成功"
-                },
-                "message": {
-                  "type": "string",
-                  "description": "描述信息"
-                },
-                "sdkAppID": {
-                  "type": "string",
-                  "description": "云通信的sdkAppID"
-                },
-                "accType": {
-                  "type": "string",
-                  "description": "云通信的accountType"
-                },
-                "userID": {
-                  "type": "string",
-                  "description": "用户id"
-                },
-                "userSig": {
-                  "type": "string",
-                  "description": "用户签名"
-                }
-              },
-              "required": [
-                "code",
-                "message",
-                "sdkAppID",
-                "accType",
-                "userID",
-                "userSig"
-              ]
-            }
+            "schema": {}
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "授权账号管理"
+        ],
+        "summary": "获取授权列表",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
           }
         }
       }

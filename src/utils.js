@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 14:11:52
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-10 14:34:49
+ * @LastEditTime : 2021-05-13 10:46:57
  * @FilePath: \codegen\src\utils.js
  */
 import * as fs from 'fs-extra'
@@ -13,7 +13,7 @@ export const promisfy = fn => {
   }
 }
 export async function writeFile (filePath, text) {
-  await fs.outputFileSync(filePath, text)
+  await fs.outputFileSync(filePath, text, { flag: 'a+' })
 }
 export async function readJson (filePath) {
   return await fs.readJson(path.resolve(filePath))
@@ -61,7 +61,7 @@ export async function readRemoteJson (remoteUrl) {
 }
 
 export async function removeTar (...args) {
-  await fs.remove(convertPath(...args))
+  await fs.emptyDir(convertPath(...args))
 }
 
 export function splitSep (path) {
