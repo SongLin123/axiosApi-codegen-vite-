@@ -1,12 +1,14 @@
 /*
  * @Date: 2020-06-11 16:59:40
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 11:43:13
+ * @LastEditTime : 2021-05-13 14:15:01
  * @FilePath: \api-codegen\src\njk.js
  */
 import * as nunjucks from 'nunjucks'
 import * as path from 'path'
 import { writeFile, convertPath } from './utils'
+import * as fs from 'fs-extra'
+
 import { isNumber } from 'lodash'
 
 export function createNjk (
@@ -95,14 +97,14 @@ export function createNjk (
 
   return env
 }
-
 export function fuckinTar (env) {
   return async function (temName, model, target) {
     const text = env.render(temName + '.njk', model)
     const p = convertPath(target)
-    model.fileName || console.log(model.data.functions[0])
+
     await writeFile(
-      path.resolve(p, ...model.dirName, model.fileName + '.js'),
+      path.resolve(p, ...model.dirName),
+      model.fileName + '.js',
       text
     )
   }

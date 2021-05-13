@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 14:11:52
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 10:46:57
+ * @LastEditTime : 2021-05-13 14:19:54
  * @FilePath: \codegen\src\utils.js
  */
 import * as fs from 'fs-extra'
@@ -12,8 +12,21 @@ export const promisfy = fn => {
     return new Promise(res => res(fn(...args)))
   }
 }
-export async function writeFile (filePath, text) {
-  await fs.outputFileSync(filePath, text, { flag: 'a+' })
+export let uid = 0
+
+export function writeFile (dir, file, text) {
+  let filePath = path.resolve(dir, file)
+
+  if (fs.pathExistsSync(filePath)) {
+    console.log(path.resolve(dir, uid + file))
+
+    fs.outputFileSync(path.resolve(dir, uid + file), text, { flag: 'a+' })
+
+    uid++
+  } else {
+    console.log(filePath, fs.pathExistsSync(filePath))
+    fs.outputFileSync(filePath, text, { flag: 'a+' })
+  }
 }
 export async function readJson (filePath) {
   return await fs.readJson(path.resolve(filePath))
@@ -61,7 +74,7 @@ export async function readRemoteJson (remoteUrl) {
 }
 
 export async function removeTar (...args) {
-  await fs.emptyDir(convertPath(...args))
+  await fs.remove(convertPath(...args))
 }
 
 export function splitSep (path) {

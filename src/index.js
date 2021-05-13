@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-05 17:57:47
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 13:16:00
+ * @LastEditTime : 2021-05-13 14:00:07
  * @FilePath: \codegen\src\index.js
  */
 
@@ -120,5 +120,11 @@ import _ from 'lodash'
     await renderModule(key.dirname, key.filename, module.get(key), targetPath)
   })
 
-  if (hasEntryService) renderEntry(entryServiceTargetPath)
+  if (hasEntryService) {
+    await removeTar(entryServiceTargetPath + 'index.js', ...basePath)
+    await removeTar(entryServiceTargetPath + 'service.js', ...basePath)
+    await removeTar(entryServiceTargetPath + 'tools.js', ...basePath)
+
+    renderEntry(entryServiceTargetPath)
+  }
 })()
