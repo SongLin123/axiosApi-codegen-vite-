@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 14:11:52
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 14:19:54
+ * @LastEditTime : 2021-05-14 15:24:27
  * @FilePath: \codegen\src\utils.js
  */
 import * as fs from 'fs-extra'
@@ -19,12 +19,10 @@ export function writeFile (dir, file, text) {
 
   if (fs.pathExistsSync(filePath)) {
     console.log(path.resolve(dir, uid + file))
-
     fs.outputFileSync(path.resolve(dir, uid + file), text, { flag: 'a+' })
 
     uid++
   } else {
-    console.log(filePath, fs.pathExistsSync(filePath))
     fs.outputFileSync(filePath, text, { flag: 'a+' })
   }
 }

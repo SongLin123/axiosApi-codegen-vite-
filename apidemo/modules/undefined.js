@@ -10,7 +10,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
     /**
-  * @description 登陆（邮箱/手机号+密码）  post /user/loginByPwd
+  * @description 登陆（邮箱+手机+密码）  post /user/loginByPwd
   
   */
   _USER_LOGINBYPWD_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
@@ -102,13 +102,13 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
     /**
-  * @description 发送验证码（邮箱）  get /user/verifyCodeByEmail
+  * @description 发送验证码（邮箱）  get /common/verifyCodeByEmail
   
   */
-  _USER_VERIFYCODEBYEMAIL_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _COMMON_VERIFYCODEBYEMAIL_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/verifyCodeByEmail`,
+      url: `${moduleName + pre}/common/verifyCodeByEmail`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -240,13 +240,13 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
     /**
-  * @description 发送验证码（手机）  get /user/verifyCodeByPhone
+  * @description 发送验证码（手机）  get /common/verifyCodeByPhone
   
   */
-  _USER_VERIFYCODEBYPHONE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _COMMON_VERIFYCODEBYPHONE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/verifyCodeByPhone`,
+      url: `${moduleName + pre}/common/verifyCodeByPhone`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
