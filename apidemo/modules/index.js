@@ -2,7 +2,9 @@ const files = import.meta.globEager('./**')
 const apis = Object.keys(files).filter((key) => !key.includes('index.js')).map(key => files[key].default)
 
 
-const moduleName = '/'
+
+
+const moduleName = ''
 
 
 export default ({

@@ -1,13 +1,17 @@
+
+ 
+
+
 /** 租户管理*/
 const pre = '/sys'
+
 export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
   
   
- 
   
-
+  
 
     /**
   * @description 启用/禁用/删除租户  delete /sys/tenant
@@ -16,7 +20,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_TENANT_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant`,
+      url: `${moduleName + pre}/tenant`,
       method: 'delete',
       headers:{'Content-Type':'application/json',
        ...header
@@ -28,9 +32,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 新建租户  post /sys/tenant
@@ -39,7 +42,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_TENANT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant`,
+      url: `${moduleName + pre}/tenant`,
       method: 'post',
       headers:{'Content-Type':'application/json',
        ...header
@@ -51,9 +54,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 租户列表  get /sys/tenant
@@ -62,7 +64,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_TENANT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant`,
+      url: `${moduleName + pre}/tenant`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -74,9 +76,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 编辑租户  put /sys/tenant
@@ -85,7 +86,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_TENANT_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant`,
+      url: `${moduleName + pre}/tenant`,
       method: 'put',
       headers:{'Content-Type':'application/json',
        ...header
@@ -97,18 +98,17 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 租户导出  get /sys/tenant/export
   
   */
-  _SYS_TENANT_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant/export`,
+      url: `${moduleName + pre}/export`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -120,18 +120,17 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 租户详情信息  get /sys/tenant/detailed/{id}
   
   */
-  _SYS_TENANT_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/tenant/detailed/${path}`,
+      url: `${moduleName + pre}/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

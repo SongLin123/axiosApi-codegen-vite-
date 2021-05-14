@@ -1,13 +1,17 @@
+
+ 
+
+
 /** 授权账号管理*/
 const pre = '/sys'
+
 export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
   
   
- 
   
-
+  
 
     /**
   * @description 再次授权  put /sys/authorize
@@ -16,7 +20,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_AUTHORIZE_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/authorize`,
+      url: `${moduleName + pre}/authorize`,
       method: 'put',
       headers:{'Content-Type':'',
        ...header
@@ -28,9 +32,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 删除授权  delete /sys/authorize
@@ -39,7 +42,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_AUTHORIZE_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/authorize`,
+      url: `${moduleName + pre}/authorize`,
       method: 'delete',
       headers:{'Content-Type':'',
        ...header
@@ -51,9 +54,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 新建授权  post /sys/authorize
@@ -62,7 +64,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_AUTHORIZE_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/authorize`,
+      url: `${moduleName + pre}/authorize`,
       method: 'post',
       headers:{'Content-Type':'',
        ...header
@@ -74,9 +76,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 获取授权列表  get /sys/authorize
@@ -85,7 +86,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_AUTHORIZE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/authorize`,
+      url: `${moduleName + pre}/authorize`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

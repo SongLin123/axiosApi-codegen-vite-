@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-12 10:20:55
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 10:49:11
+ * @LastEditTime : 2021-05-14 18:10:57
  * @FilePath: \codegen\src\render.js
  */
 import { createNjk, fuckinTar } from './njk'
@@ -40,6 +40,7 @@ export function renderIndex (dirName = [], model, target) {
     dirName,
     fileName: 'index'
   })
+  console.log(model)
 
   render('index', model, target)
 }

@@ -1,6 +1,6 @@
-{% if data.moduleName %}
+{% if request.moduleName %}
   {% set funcRoute = upper(request.moduleName)+'_'+upper(request.path)+'_' %}
-  {% set urlRoute ='/'+ request.moduleName+'/'+request.path %}
+  {% set urlRoute ='/'+request.path %}
 {% else %}
  {% set funcRoute = iterator(request.routes,upper,'_') %}
   {% set urlRoute = iterator(request.routes,undefined,'','/') %}

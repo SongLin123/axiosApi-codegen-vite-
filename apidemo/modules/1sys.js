@@ -1,13 +1,17 @@
+
+ 
+
+
 /** 账户管理*/
 const pre = '/sys'
+
 export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
   
   
- 
   
-
+  
 
     /**
   * @description 启用/禁用/删除账户  delete /sys/user
@@ -16,7 +20,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_USER_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user`,
+      url: `${moduleName + pre}/user`,
       method: 'delete',
       headers:{'Content-Type':'application/json',
        ...header
@@ -28,9 +32,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 新建账户  post /sys/user
@@ -39,7 +42,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_USER_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user`,
+      url: `${moduleName + pre}/user`,
       method: 'post',
       headers:{'Content-Type':'application/json',
        ...header
@@ -51,9 +54,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 编辑账户  put /sys/user
@@ -62,7 +64,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_USER_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user`,
+      url: `${moduleName + pre}/user`,
       method: 'put',
       headers:{'Content-Type':'application/json',
        ...header
@@ -74,9 +76,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 账户列表  get /sys/user
@@ -85,7 +86,7 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   _SYS_USER_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user`,
+      url: `${moduleName + pre}/user`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -97,18 +98,17 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 导入账户  post /sys/account/import
   
   */
-  _SYS_ACCOUNT_IMPORT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_IMPORT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/account/import`,
+      url: `${moduleName + pre}/import`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -120,18 +120,17 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 账户导出  get /sys/user/export
   
   */
-  _SYS_USER_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user/export`,
+      url: `${moduleName + pre}/export`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -143,18 +142,17 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
   
-
+  
 
     /**
   * @description 账户详情信息  get /sys/user/detailed/{id}
   
   */
-  _SYS_USER_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/sys/user/detailed/${path}`,
+      url: `${moduleName + pre}/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

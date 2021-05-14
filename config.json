@@ -1,6 +1,6 @@
 {
     "api": "./swaggerApi.json",
     "targetPath": "./apidemo/modules/",
-    "hasEntryService": true,
+    "hasEntryService": false,
     "entryServiceTargetPath": "./apidemo/"
 }

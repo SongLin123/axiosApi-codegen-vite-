@@ -1,5 +1,10 @@
+
+ 
+
+
 /** 基础功能*/
-const pre = '/'
+const pre = ''
+
 export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
 
