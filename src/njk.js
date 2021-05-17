@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-11 16:59:40
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 14:15:01
+ * @LastEditTime : 2021-05-17 18:26:40
  * @FilePath: \api-codegen\src\njk.js
  */
 import * as nunjucks from 'nunjucks'
@@ -76,6 +76,7 @@ export function createNjk (
       for (const item of tar) {
         s += preConnector + func(item) + endConnector
       }
+      console.log(s)
       return s
     } catch (err) {
       return err.message

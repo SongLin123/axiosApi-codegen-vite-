@@ -1,14 +1,15 @@
 {% if request.moduleName %}
-  {% set funcRoute = upper(request.moduleName)+'_'+upper(request.path)+'_' %}
-  {% set urlRoute ='/'+request.path %}
-{% else %}
- {% set funcRoute = iterator(request.routes,upper,'_') %}
-  {% set urlRoute = iterator(request.routes,undefined,'','/') %}
-
+  {% set r = request
+    .routes
+    .slice(1) %}
 {% endif %}
-    /**
-  * @description {{request.desc}}  {{request.type}} {{ request.fullpath}}
-  {# @param {{requestBody.type}} 
+{% set funcRoute = iterator(request.routes, upper, '_') %}
+{% set urlRoute = iterator(r, undefined, '', '/') %}
+/**
+  * @description {{request.desc}}
+{{request.type}}
+{{ request.fullpath}}
+{# @param {{requestBody.type}} 
   {
     {% for item in requestBody.field %}
   {{ 'reqdesc.njk' | render(item) }}

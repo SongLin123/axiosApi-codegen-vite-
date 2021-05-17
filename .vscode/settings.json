@@ -5,5 +5,8 @@
     "editor.formatOnType": true,
     "[ignore]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[nunjucks]": {
+        "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
     }
 }

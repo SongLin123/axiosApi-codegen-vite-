@@ -11,11 +11,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 删除权限  delete /sys/level/{id}
-  
+
+
+/**
+  * @description 删除权限
+delete
+/sys/level/{id}
+
   */
   _SYS_LEVEL_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -33,11 +36,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 新建权限  post /sys/level
-  
+
+
+/**
+  * @description 新建权限
+post
+/sys/level
+
   */
   _SYS_LEVEL_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -55,11 +61,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 权限列表  get /sys/level
-  
+
+
+/**
+  * @description 权限列表
+get
+/sys/level
+
   */
   _SYS_LEVEL_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -77,11 +86,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 编辑权限  put /sys/level
-  
+
+
+/**
+  * @description 编辑权限
+put
+/sys/level
+
   */
   _SYS_LEVEL_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -99,16 +111,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 权限设置  put /sys/level/permissionSetted
-  
+
+
+/**
+  * @description 权限设置
+put
+/sys/level/permissionSetted
+
   */
-  _SYS_PERMISSIONSETTED_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_LEVEL_PERMISSIONSETTED_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/permissionSetted`,
+      url: `${moduleName + pre}/level/permissionSetted`,
       method: 'put',
       headers:{'Content-Type':'application/json',
        ...header
@@ -121,16 +136,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 权限详情信息  get /sys/level/detailed/{id}
-  
+
+
+/**
+  * @description 权限详情信息
+get
+/sys/level/detailed/{id}
+
   */
-  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_LEVEL_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/detailed/${path}`,
+      url: `${moduleName + pre}/level/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -143,16 +161,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 获取资源树  get /sys/resource/tree
-  
+
+
+/**
+  * @description 获取资源树
+get
+/sys/resource/tree
+
   */
-  _SYS_TREE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_RESOURCE_TREE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/tree`,
+      url: `${moduleName + pre}/resource/tree`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

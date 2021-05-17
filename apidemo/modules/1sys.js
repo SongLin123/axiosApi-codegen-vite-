@@ -11,11 +11,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 启用/禁用/删除账户  delete /sys/user
-  
+
+
+/**
+  * @description 启用/禁用/删除账户
+delete
+/sys/user
+
   */
   _SYS_USER_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -33,11 +36,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 新建账户  post /sys/user
-  
+
+
+/**
+  * @description 新建账户
+post
+/sys/user
+
   */
   _SYS_USER_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -55,11 +61,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 编辑账户  put /sys/user
-  
+
+
+/**
+  * @description 编辑账户
+put
+/sys/user
+
   */
   _SYS_USER_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -77,11 +86,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 账户列表  get /sys/user
-  
+
+
+/**
+  * @description 账户列表
+get
+/sys/user
+
   */
   _SYS_USER_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -99,16 +111,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 导入账户  post /sys/account/import
-  
+
+
+/**
+  * @description 导入账户
+post
+/sys/account/import
+
   */
-  _SYS_IMPORT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_ACCOUNT_IMPORT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/import`,
+      url: `${moduleName + pre}/account/import`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -121,16 +136,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 账户导出  get /sys/user/export
-  
+
+
+/**
+  * @description 账户导出
+get
+/sys/user/export
+
   */
-  _SYS_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_USER_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/export`,
+      url: `${moduleName + pre}/user/export`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -143,16 +161,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 账户详情信息  get /sys/user/detailed/{id}
-  
+
+
+/**
+  * @description 账户详情信息
+get
+/sys/user/detailed/{id}
+
   */
-  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_USER_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/detailed/${path}`,
+      url: `${moduleName + pre}/user/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-06-05 17:57:47
  * @LastEditors  : BillySong
- * @LastEditTime : 2021-05-13 14:00:07
+ * @LastEditTime : 2021-05-17 18:25:22
  * @FilePath: \codegen\src\index.js
  */
 
@@ -39,7 +39,7 @@ import _ from 'lodash'
               let routes = item
                 .split('/')
                 .filter(t => (t.search(/\{/) ? t : ''))
-
+              console.log(routes)
               return {
                 tags: func.tags,
                 request: {

@@ -10,18 +10,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
   
   
- 
-  
 
 
-    /**
-  * @description 登陆（邮箱+手机+密码）  post /user/loginByPwd
-  
+/**
+  * @description 登陆（邮箱+手机+密码）
+post
+/user/loginByPwd
+
   */
   _USER_LOGINBYPWD_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/loginByPwd`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -33,18 +33,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 搜索  get /common/search
-  
+/**
+  * @description 搜索
+get
+/common/search
+
   */
   _COMMON_SEARCH_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/common/search`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -56,18 +56,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 文件下载  get /common/download
-  
+/**
+  * @description 文件下载
+get
+/common/download
+
   */
   _COMMON_DOWNLOAD_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/common/download`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -79,18 +79,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 更换手机号/邮箱  put /user/update
-  
+/**
+  * @description 更换手机号/邮箱
+put
+/user/update
+
   */
   _USER_UPDATE_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/update`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'put',
       headers:{'Content-Type':'',
        ...header
@@ -102,18 +102,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 发送验证码（邮箱）  get /common/verifyCodeByEmail
-  
+/**
+  * @description 发送验证码（邮箱）
+get
+/common/verifyCodeByEmail
+
   */
   _COMMON_VERIFYCODEBYEMAIL_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/common/verifyCodeByEmail`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -125,18 +125,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 获取个人信息  get /user/info
-  
+/**
+  * @description 获取个人信息
+get
+/user/info
+
   */
   _USER_INFO_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/info`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -148,18 +148,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 退出登陆  get /user/logout
-  
+/**
+  * @description 退出登陆
+get
+/user/logout
+
   */
   _USER_LOGOUT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/logout`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -171,18 +171,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 登陆（手机号+验证码）  post /user/loginByVerifyCode
-  
+/**
+  * @description 登陆（手机号+验证码）
+post
+/user/loginByVerifyCode
+
   */
   _USER_LOGINBYVERIFYCODE_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/loginByVerifyCode`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -194,18 +194,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 重置密码  put /user/resetPwd
-  
+/**
+  * @description 重置密码
+put
+/user/resetPwd
+
   */
   _USER_RESETPWD_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/resetPwd`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'put',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -217,18 +217,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 绑定手机号  put /user/bindPhone
-  
+/**
+  * @description 绑定手机号
+put
+/user/bindPhone
+
   */
   _USER_BINDPHONE_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/user/bindPhone`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'put',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -240,18 +240,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 发送验证码（手机）  get /common/verifyCodeByPhone
-  
+/**
+  * @description 发送验证码（手机）
+get
+/common/verifyCodeByPhone
+
   */
   _COMMON_VERIFYCODEBYPHONE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/common/verifyCodeByPhone`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -263,18 +263,18 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   },
   
   
- 
-  
 
 
-    /**
-  * @description 问题反馈  post /common/question
-  
+/**
+  * @description 问题反馈
+post
+/common/question
+
   */
   _COMMON_QUESTION_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/common/question`,
+      url: `${moduleName + pre}tar is not iterable`,
       method: 'post',
       headers:{'Content-Type':'',
        ...header

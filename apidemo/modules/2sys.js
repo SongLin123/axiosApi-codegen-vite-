@@ -11,11 +11,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 删除/启用/禁用分组  delete /sys/groups
-  
+
+
+/**
+  * @description 删除/启用/禁用分组
+delete
+/sys/groups
+
   */
   _SYS_GROUPS_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -33,11 +36,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 新建分组  post /sys/groups
-  
+
+
+/**
+  * @description 新建分组
+post
+/sys/groups
+
   */
   _SYS_GROUPS_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -55,11 +61,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 编辑分组  put /sys/groups
-  
+
+
+/**
+  * @description 编辑分组
+put
+/sys/groups
+
   */
   _SYS_GROUPS_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -77,11 +86,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 获取分组列表  get /sys/groups
-  
+
+
+/**
+  * @description 获取分组列表
+get
+/sys/groups
+
   */
   _SYS_GROUPS_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -99,16 +111,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 获取分组详情  get /sys/groups/detailed/{id}
-  
+
+
+/**
+  * @description 获取分组详情
+get
+/sys/groups/detailed/{id}
+
   */
-  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_GROUPS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/detailed/${path}`,
+      url: `${moduleName + pre}/groups/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header

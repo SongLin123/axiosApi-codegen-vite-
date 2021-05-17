@@ -11,11 +11,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 启用/禁用/删除租户  delete /sys/tenant
-  
+
+
+/**
+  * @description 启用/禁用/删除租户
+delete
+/sys/tenant
+
   */
   _SYS_TENANT_DELETE({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -33,11 +36,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 新建租户  post /sys/tenant
-  
+
+
+/**
+  * @description 新建租户
+post
+/sys/tenant
+
   */
   _SYS_TENANT_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -55,11 +61,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 租户列表  get /sys/tenant
-  
+
+
+/**
+  * @description 租户列表
+get
+/sys/tenant
+
   */
   _SYS_TENANT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -77,11 +86,14 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 编辑租户  put /sys/tenant
-  
+
+
+/**
+  * @description 编辑租户
+put
+/sys/tenant
+
   */
   _SYS_TENANT_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
@@ -99,16 +111,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 租户导出  get /sys/tenant/export
-  
+
+
+/**
+  * @description 租户导出
+get
+/sys/tenant/export
+
   */
-  _SYS_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_TENANT_EXPORT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/export`,
+      url: `${moduleName + pre}/tenant/export`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -121,16 +136,19 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
   
   
   
-  
 
-    /**
-  * @description 租户详情信息  get /sys/tenant/detailed/{id}
-  
+
+
+/**
+  * @description 租户详情信息
+get
+/sys/tenant/detailed/{id}
+
   */
-  _SYS_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
+  _SYS_TENANT_DETAILED_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}/detailed/${path}`,
+      url: `${moduleName + pre}/tenant/detailed/${path}`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
