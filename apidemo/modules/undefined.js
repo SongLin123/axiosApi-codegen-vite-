@@ -10,6 +10,8 @@ export default ({ request, requestForMock, mock, tools, moduleName }) => ({
 
   
   
+  
+
 
 
 /**
@@ -21,7 +23,7 @@ post
   _USER_LOGINBYPWD_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/loginByPwd`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -33,6 +35,8 @@ post
   },
   
   
+  
+
 
 
 /**
@@ -44,7 +48,7 @@ get
   _COMMON_SEARCH_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/common/search`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -56,6 +60,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -67,7 +73,7 @@ get
   _COMMON_DOWNLOAD_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/common/download`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -79,6 +85,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -90,7 +98,7 @@ put
   _USER_UPDATE_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/update`,
       method: 'put',
       headers:{'Content-Type':'',
        ...header
@@ -102,6 +110,8 @@ put
   },
   
   
+  
+
 
 
 /**
@@ -113,7 +123,7 @@ get
   _COMMON_VERIFYCODEBYEMAIL_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/common/verifyCodeByEmail`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -125,6 +135,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -136,7 +148,7 @@ get
   _USER_INFO_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/info`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -148,6 +160,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -159,7 +173,7 @@ get
   _USER_LOGOUT_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/logout`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -171,6 +185,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -182,7 +198,7 @@ post
   _USER_LOGINBYVERIFYCODE_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/loginByVerifyCode`,
       method: 'post',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -194,6 +210,8 @@ post
   },
   
   
+  
+
 
 
 /**
@@ -205,7 +223,7 @@ put
   _USER_RESETPWD_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/resetPwd`,
       method: 'put',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -217,6 +235,8 @@ put
   },
   
   
+  
+
 
 
 /**
@@ -228,7 +248,7 @@ put
   _USER_BINDPHONE_PUT({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/user/bindPhone`,
       method: 'put',
       headers:{'Content-Type':'multipart/form-data',
        ...header
@@ -240,6 +260,8 @@ put
   },
   
   
+  
+
 
 
 /**
@@ -251,7 +273,7 @@ get
   _COMMON_VERIFYCODEBYPHONE_GET({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/common/verifyCodeByPhone`,
       method: 'get',
       headers:{'Content-Type':'',
        ...header
@@ -263,6 +285,8 @@ get
   },
   
   
+  
+
 
 
 /**
@@ -274,7 +298,7 @@ post
   _COMMON_QUESTION_POST({body=undefined,param=undefined,header=undefined,path=undefined,config=undefined}={}) {
     // 接口请求
     return request({
-      url: `${moduleName + pre}tar is not iterable`,
+      url: `${moduleName + pre}/common/question`,
       method: 'post',
       headers:{'Content-Type':'',
        ...header
